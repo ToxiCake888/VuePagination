@@ -1,5 +1,8 @@
 <template>
-  <NewPostCreation />
+  <NewPostCreation
+    @createPost="pushPost"
+    :postsLength="initPosts.length"
+  />
   <Posts v-bind:posts="initPosts" />
 </template>
 
@@ -14,8 +17,12 @@ const initPosts = ref([])
 onMounted(async () => {
   const response = await fetch(apiurl)
   initPosts.value = await response.json()
-  //console.log(initPosts.value)
+  console.log(initPosts.value)
 })
+
+const pushPost = (newPost) => {
+  initPosts.value.push(newPost)
+}
 </script>
 
 <style scoped></style>
