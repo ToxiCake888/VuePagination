@@ -1,6 +1,6 @@
 <template>
   <section class="paginationUI">
-    <button>prev</button>
+    <button @click="switchEmit(1)">first</button>
     <div
       v-for="pagenum in totPages"
       :key="pagenum"
@@ -10,12 +10,10 @@
     >
       {{ pagenum }}
     </div>
-    <button>next</button>
+    <button @click="switchEmit(totPages)">last</button>
   </section>
 </template>
 <script>
-import { ref } from 'vue'
-
 export default {
   props: {
     posts: {
