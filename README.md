@@ -1,6 +1,6 @@
 # VuePagination
 
-This template should help get you started developing with Vue 3 in Vite.
+Website made on vue 3, it is taking data from fake fast api and shows it sorted by pagination feature. Moreover site includes functional to create and add new posts.
 
 ## Recommended IDE Setup
 
