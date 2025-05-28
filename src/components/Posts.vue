@@ -40,7 +40,7 @@ export default {
 .post {
   padding: 8px;
   border-radius: 20px;
-  background-color: rgb(255, 232, 201);
+  background-color: rgb(255, 255, 255);
   margin: 15px;
   max-width: 800px;
 }

@@ -2,19 +2,19 @@
   <div class="newPostCreation">
     <input
       type="text"
-      class="newPostAutor"
+      class="newPostAutor postCreationInputs"
       placeholder="autor"
       v-model="postAutor"
     />
     <input
       type="text"
-      class="newPostTitle"
+      class="newPostTitle postCreationInputs"
       placeholder="title"
       v-model="postTitle"
     />
     <input
       type="text"
-      class="newPostText"
+      class="newPostText postCreationInputs"
       placeholder="text"
       v-model="postBody"
     />
@@ -60,5 +60,10 @@ export default {
   margin-left: 10px;
   height: 25px;
   width: 60px;
+}
+
+.postCreationInputs {
+  height: 20px;
+  margin: 8px;
 }
 </style>

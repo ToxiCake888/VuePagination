@@ -36,6 +36,7 @@ export default {
   display: flex;
 }
 .pagebtns {
+  background-color: rgb(255, 255, 255);
   margin: 2px;
   padding: 8px;
   border: solid, 2px;
