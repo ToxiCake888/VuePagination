@@ -1,6 +1,11 @@
 <template>
   <div class="newPostCreation">
     <section class="inputs">
+      <img
+        src="../assets/logo.svg"
+        alt=""
+        class="logo"
+      />
       <!-- <input
         type="text"
         class="newPostAutor postCreationInputs"
@@ -59,6 +64,10 @@ export default {
 }
 </script>
 <style scoped>
+.logo {
+  margin: 10px;
+}
+
 .newPostCreation {
   padding: 10px;
   display: flex;
@@ -94,6 +103,7 @@ export default {
 }
 
 .postCreationInputs {
+  align-self: flex-end;
   justify-self: center;
   box-sizing: border-box;
   width: 20vw;
@@ -120,7 +130,7 @@ export default {
 
   .postCreationInputs {
     justify-self: center;
-    width: 40vw;
+    width: 30vw;
   }
 }
 
