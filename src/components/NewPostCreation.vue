@@ -76,6 +76,7 @@ export default {
 }
 
 .submitBtn {
+  align-self: flex-end;
   display: flex;
   color: white;
   justify-self: center;
