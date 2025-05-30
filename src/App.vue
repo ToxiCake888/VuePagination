@@ -20,7 +20,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import NewPostCreation from '/src/components/icons/NewPostCreation.vue'
+import NewPostCreation from '/src/components/NewPostCreation.vue'
 import Posts from '/src/components/Posts.vue'
 import Pagination from '/src/components/Pagination.vue'
 
@@ -52,13 +52,25 @@ const switchPage = (newPage) => {
 
 <style scoped>
 .body {
+  background-image: url('./assets/Group.svg');
+  background-size: cover;
   min-height: 100vh;
   width: 100vw;
-  background: #7b00ff;
+  /* background: #7b00ff;
   background: linear-gradient(
     -45deg,
     rgba(123, 0, 255, 1) 0%,
     rgba(8, 0, 255, 1) 100%
-  );
+  ); */
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url('./fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: MontserratItalic;
+  src: url(./fonts/Montserrat-Italic-VariableFont_wght.ttf);
 }
 </style>

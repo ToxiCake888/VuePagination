@@ -1,6 +1,11 @@
 <template>
   <section class="paginationUI">
-    <button @click="switchEmit(1)">first</button>
+    <button
+      @click="switchEmit(1)"
+      class="pagebtns"
+    >
+      <<
+    </button>
     <div
       v-for="pagenum in totPages"
       :key="pagenum"
@@ -10,7 +15,12 @@
     >
       {{ pagenum }}
     </div>
-    <button @click="switchEmit(totPages)">last</button>
+    <button
+      @click="switchEmit(totPages)"
+      class="pagebtns"
+    >
+      >>
+    </button>
   </section>
 </template>
 <script>
@@ -36,12 +46,16 @@ export default {
   display: flex;
 }
 .pagebtns {
-  background-color: rgb(255, 255, 255);
+  background-color: #b0b4ff;
   margin: 2px;
   padding: 8px;
-  border: solid, 2px;
+  border: 0px;
+  border-radius: 5px;
+}
+.pagebtns:hover {
+  background-color: #c5c8ff;
 }
 .selectedPage {
-  background-color: rgb(190, 190, 190);
+  background-color: rgb(255, 255, 255) !important;
 }
 </style>
