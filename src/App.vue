@@ -4,6 +4,7 @@
       @createPost="pushPost"
       :postsLength="postsArray.length"
     />
+    <div class="siteTitle">Статьи</div>
     <Posts
       :posts="postsArray"
       :curPage="currentPage"
@@ -51,6 +52,15 @@ const switchPage = (newPage) => {
 </script>
 
 <style scoped>
+.siteTitle {
+  color: white;
+  margin-top: 20px;
+  font-family: montserrat;
+  font-weight: 700;
+  font-size: 30px;
+  margin-left: 6vw;
+}
+
 .body {
   background-image: url('./assets/Group.svg');
   background-size: cover;
