@@ -1,6 +1,7 @@
 # VuePagination
 
-Website made on vue 3, it is taking data from fake fast api and shows it sorted by pagination feature. Moreover site includes functional to create and add new posts.
+Website made on vue 3, it is taking data from fake fast api and shows it sorted by pagination feature.
+Moreover site includes functional to create and add new posts.
 
 ## Recommended IDE Setup
 
