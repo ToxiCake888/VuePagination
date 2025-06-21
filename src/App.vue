@@ -28,7 +28,7 @@ import Pagination from '/src/components/Pagination.vue'
 const postsArray = ref([])
 const currentPage = ref(1)
 const postsOnPage = ref(6)
-const totalPosts = ref(24)
+const totalPosts = ref(12)
 const apiurl = `https://jsonplaceholder.typicode.com/posts?_limit=${totalPosts.value}`
 
 const totalPages = computed(() => {
