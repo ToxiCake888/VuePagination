@@ -85,14 +85,6 @@ export default {
     grid-template-rows: 70vh 70vh;
   }
 }
-@media (max-width: 620px) {
-  .post {
-    margin: 5px;
-  }
-  .postsGrid {
-    grid-template-rows: 54vh 54vh 54vh;
-  }
-}
 
 @media (min-width: 620px) {
   .postsGrid {

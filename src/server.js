@@ -32,6 +32,19 @@ app.get('/getData',(req,res)=>{
     })
 })
 
+app.get('/getLength',(req,res)=>{
+    const fetch_query='SELECT COUNT(*) FROM posts'
+    Dbconnection.query(fetch_query,(err,result)=>{
+        if(err){
+            res.send(err)
+        }
+        else{
+            const count = parseInt(result.rows[0].count, 10);
+            res.json({ count });
+        }
+    })
+})
+
 app.post('/postData',(req,res)=>{
     const{title,body}=req.body
 

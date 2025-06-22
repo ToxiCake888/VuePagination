@@ -30,20 +30,45 @@ const currentPage = ref(1)
 const postsOnPage = ref(6)
 const totalPosts = ref(0)
 const apiurl = `http://localhost:3000/getData`
+const apilength = `http://localhost:3000/getLength`
+const apipost = `http://localhost:3000/postData`
 
 const totalPages = computed(() => {
   return Math.ceil(totalPosts.value / postsOnPage.value)
 })
 
 onMounted(async () => {
-  const response = await fetch(apiurl)
-  postsArray.value = await response.json()
-  console.log(postsArray.value)
+  try {
+    const response = await fetch(apiurl)
+    postsArray.value = await response.json()
+
+    const lenresponse = await fetch(apilength)
+    const lenData = await lenresponse.json()
+
+    totalPosts.value = lenData.count
+  } catch (error) {
+    console.error('Ошибка при загрузке данных:', error)
+  }
 })
 
-const pushPost = (newPost) => {
-  postsArray.value.push(newPost)
-  totalPosts.value += 1
+const pushPost = async (newPost) => {
+  try {
+    const response = await fetch(apipost, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newPost)
+    })
+
+    if (!response.ok) {
+      throw new Error(`Ошибка при добавлении поста: ${response.status}`)
+    }
+
+    await fetch(apiurl)
+    totalPosts.value += 1
+    postsArray.value.push(newPost)
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 const switchPage = (newPage) => {
