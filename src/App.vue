@@ -29,7 +29,7 @@ const postsArray = ref([])
 const currentPage = ref(1)
 const postsOnPage = ref(6)
 const totalPosts = ref(12)
-const apiurl = `https://jsonplaceholder.typicode.com/posts?_limit=${totalPosts.value}`
+const apiurl = `http://localhost:3000/getData`
 
 const totalPages = computed(() => {
   return Math.ceil(totalPosts.value / postsOnPage.value)
