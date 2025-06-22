@@ -28,7 +28,7 @@ import Pagination from '/src/components/Pagination.vue'
 const postsArray = ref([])
 const currentPage = ref(1)
 const postsOnPage = ref(6)
-const totalPosts = ref(12)
+const totalPosts = ref(0)
 const apiurl = `http://localhost:3000/getData`
 
 const totalPages = computed(() => {
