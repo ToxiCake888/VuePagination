@@ -51,6 +51,10 @@ onMounted(async () => {
   }
 })
 
+function handlePostDeleted(id) {
+  this.posts = this.posts.filter((post) => post.id !== id)
+}
+
 const pushPost = async (newPost) => {
   try {
     const response = await fetch(apipost, {

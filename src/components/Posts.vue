@@ -4,19 +4,29 @@
       <section
         class="post"
         v-for="post in posts.slice(startId, endId)"
-        :key="posts.id"
+        :key="post.id"
       >
         <section class="postAuthor">{{ post.id }}</section>
         <section class="postHeader">
           <strong>{{ post.title }}</strong>
         </section>
         <section class="postBody">{{ post.body }}</section>
+        <section class="postBtn">
+          <button
+            class="delete-btn"
+            @click="postDelete(post.id)"
+          >
+            Удалить
+          </button>
+        </section>
       </section>
     </section>
   </section>
 </template>
 
 <script>
+const apidelete = `http://localhost:3000/delete:id`
+
 export default {
   props: {
     posts: {
@@ -34,11 +44,54 @@ export default {
     endId() {
       return this.startId + this.postsAmount
     }
+  },
+  methods: {
+    async postDelete(id) {
+      try {
+        const response = await fetch(`http://localhost:3000/delete/${id}`, {
+          method: 'DELETE'
+        })
+        if (!response.ok) {
+          throw new Error(`Ошибка удаления: ${response.statusText}`)
+        }
+        this.$emit('post-deleted', id)
+        window.location.reload()
+      } catch (error) {
+        console.error(error)
+        alert('Не удалось удалить пост')
+      }
+    }
   }
 }
 </script>
 
 <style scoped>
+.postHeader {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.delete-btn {
+  display: block;
+  position: absolute;
+  text-align: center;
+  justify-items: center;
+  right: 10px;
+  bottom: 10px;
+  height: 30px;
+  border-radius: 14px;
+  border-width: 0px;
+  background-color: rgb(204, 19, 19);
+  color: white;
+}
+.delete-btn:hover {
+  background-color: rgb(175, 22, 22);
+  color: rgb(230, 230, 230);
+}
+.delete-btn:active {
+  background-color: rgrgb(145, 18, 18);
+  color: rgb(201, 201, 201);
+}
 .postsBody {
   height: fit-content;
 }
@@ -49,7 +102,7 @@ export default {
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   margin: 15px;
-
+  position: relative;
   height: 90%;
   overflow: hidden;
 }
