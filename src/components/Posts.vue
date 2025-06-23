@@ -71,29 +71,37 @@ export default {
   margin-bottom: 10px;
 }
 
+.postBtn {
+  margin-top: auto;
+  width: 100%;
+}
+
 .delete-btn {
-  display: block;
-  position: absolute;
-  text-align: center;
-  justify-items: center;
-  right: 10px;
-  bottom: 10px;
-  height: 30px;
+  margin-top: 10px;
+  width: 100%;
+  height: 40px;
   border-radius: 14px;
-  border-width: 0px;
+  border: none;
   background-color: rgb(204, 19, 19);
   color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
+
 .delete-btn:hover {
   background-color: rgb(175, 22, 22);
   color: rgb(230, 230, 230);
 }
+
 .delete-btn:active {
-  background-color: rgrgb(145, 18, 18);
+  background-color: rgb(145, 18, 18);
   color: rgb(201, 201, 201);
 }
+
 .postsBody {
-  height: fit-content;
+  height: auto;
 }
 
 .post {
@@ -103,46 +111,50 @@ export default {
   background-color: rgb(255, 255, 255);
   margin: 15px;
   position: relative;
-  height: 90%;
-  overflow: hidden;
+
+  height: auto;
+  overflow: visible;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .postsGrid {
   display: grid;
-  grid-template-rows: 30vh 30vh;
-  grid-template-columns: 32vw 32vw 32vw;
-  grid-auto-rows: minmax(auto, 40vh);
-}
 
-@media (max-width: 500px) {
-  .post {
-    max-height: 50vh;
-  }
-  .postsGrid {
-    display: grid;
-    grid-template-columns: 48vw 48vw;
-    grid-template-rows: 50vh;
-  }
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: 15px;
 }
 
 @media (max-width: 1050px) {
   .postsGrid {
-    grid-template-rows: 45vh 45vh;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
   }
 }
-@media (max-width: 850px) {
+
+@media (max-width: 500px) {
+  .postsGrid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
   .post {
     margin: 10px;
   }
-  .postsGrid {
-    grid-template-rows: 70vh 70vh;
+}
+
+@media (max-width: 850px) {
+  .post {
+    margin: 10px;
   }
 }
 
 @media (min-width: 620px) {
   .postsGrid {
-    grid-template-columns: 32vw 32vw 32vw;
-    grid-template-rows: 80vh 80vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
   }
 }
 </style>
